@@ -21,7 +21,7 @@ test2.test_function() """
 
 # Dunder methods, (__init__ , __len__)
 # mage class
-class Mage:
+""" class Mage:
 
     # similar to constructor
     def __init__(self, health, mana):
@@ -43,4 +43,39 @@ monster = Monster()
 
 print(monster.health)
 mage.attack(monster)
-print(monster.health)
+print(monster.health) """
+
+
+# inheritance
+
+class Character:
+    def __init__(self, health):
+        self.health = health
+
+    def attack(self):
+        print('attack')
+
+class Warrior(Character):
+    def __init__(self, health, defense):
+        super().__init__(health)
+        self.defense = defense
+
+
+class Barbarian(Character):
+    def __init__(self, health, damage):
+        super().__init__(health)
+        self.damage = damage
+
+class Monster(Character):
+    def __init__(self, health):
+        super().__init__(health)
+        self.get_health()
+
+    def get_health(self):
+        print(f'a monster with {self.health} hp')
+
+warrior = Warrior(50, 5.5)
+barbarian = Barbarian(100, 8.1)
+monster = Monster(100)
+# warrior.attack()
+# barbarian.attack()
